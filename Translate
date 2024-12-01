@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <map>
+using namespace std;
+
+void translateHolidayMessage(const string& message) {
+    map<string, string> bosnianTranslations = {
+        {"Merry Christmas", "Srećan Božić"},
+        {"Happy New Year", "Srećan Nova Godina"},
+        {"Happy Holidays", "Srećni praznici"},
+        {"Wishing you a joyful holiday season", "Želim vam radostan praznični period"}
+    };
+
+    map<string, string> albanianTranslations = {
+        {"Merry Christmas", "Gëzuar Krishtlindjet"},
+        {"Happy New Year", "Gëzuar Vitin e Ri"},
+        {"Happy Holidays", "Gëzuar Pushimet"},
+        {"Wishing you a joyful holiday season", "Të uroj një sezon të gëzuar festash"}
+    };
+
+    if (bosnianTranslations.find(message) != bosnianTranslations.end()) {
+        cout << "Bosnian Translation: " << bosnianTranslations[message] << endl;
+    } else {
+        cout << "No Bosnian translation available for: " << message << endl;
+    }
+
+    if (albanianTranslations.find(message) != albanianTranslations.end()) {
+        cout << "Albanian Translation: " << albanianTranslations[message] << endl;
+    } else {
+        cout << "No Albanian translation available for: " << message << endl;
+    }
+}
+
+int main() {
+    string holidayMessages[] = {
+        "Merry Christmas",
+        "Happy New Year",
+        "Happy Holidays",
+        "Wishing you a joyful holiday season"
+    };
+
+    for (const string& message : holidayMessages) {
+        cout << "Original English Message: " << message << endl;
+        translateHolidayMessage(message);
+        cout << endl;
+    }
+
+    return 0;
+}
